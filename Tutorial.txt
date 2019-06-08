@@ -1,0 +1,14 @@
+// Pegando repositorio remoto
+git init
+
+git remote add origin https://github.com/davigomesflorencio/Qproject.git
+
+git pull origin master
+
+//fazendo commits
+
+git add  (pastas ou arquivos)
+
+git commit -m "mensagem do commit"
+
+git push origin master
