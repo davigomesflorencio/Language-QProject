@@ -110,15 +110,15 @@ expressao_comando
     | SEMI
     ;
 expressao
-    : LPAREN expressao RPAREN
-    | <assoc=right> expressao operador_binario expressao
-    | <assoc=right> operador_unario expressao
-    | nome LPAREN parametros_reais RPAREN
-    | nome
-    | INTL
-    | CHARL
-    | TRUE
-    | FALSE
+    : LPAREN expressao RPAREN   #ExpressinParen
+    | <assoc=right> expressao operador_binario expressao #ExpressionOperatorBinary
+    | <assoc=right> operador_unario expressao #ExpressionOperatorUnary
+    | nome LPAREN parametros_reais RPAREN   #ExpressionParameter
+    | nome  #ExpressionNome
+    | INTL  #ExpressionInt
+    | CHARL #ExpressionCharl
+    | TRUE  #ExpressionTrue
+    | FALSE #ExpressionFalse
     ;
 operador_binario
     : AND

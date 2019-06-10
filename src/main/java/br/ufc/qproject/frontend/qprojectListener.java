@@ -348,15 +348,113 @@ public interface qprojectListener extends ParseTreeListener {
 	 */
 	void exitExpressao_comando(qprojectParser.Expressao_comandoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link qprojectParser#expressao}.
+	 * Enter a parse tree produced by the {@code ExpressionFalse}
+	 * labeled alternative in {@link qprojectParser#expressao}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpressao(qprojectParser.ExpressaoContext ctx);
+	void enterExpressionFalse(qprojectParser.ExpressionFalseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link qprojectParser#expressao}.
+	 * Exit a parse tree produced by the {@code ExpressionFalse}
+	 * labeled alternative in {@link qprojectParser#expressao}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpressao(qprojectParser.ExpressaoContext ctx);
+	void exitExpressionFalse(qprojectParser.ExpressionFalseContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ExpressionOperatorBinary}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionOperatorBinary(qprojectParser.ExpressionOperatorBinaryContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ExpressionOperatorBinary}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionOperatorBinary(qprojectParser.ExpressionOperatorBinaryContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ExpressionParameter}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionParameter(qprojectParser.ExpressionParameterContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ExpressionParameter}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionParameter(qprojectParser.ExpressionParameterContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ExpressionTrue}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionTrue(qprojectParser.ExpressionTrueContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ExpressionTrue}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionTrue(qprojectParser.ExpressionTrueContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ExpressionOperatorUnary}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionOperatorUnary(qprojectParser.ExpressionOperatorUnaryContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ExpressionOperatorUnary}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionOperatorUnary(qprojectParser.ExpressionOperatorUnaryContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ExpressinParen}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressinParen(qprojectParser.ExpressinParenContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ExpressinParen}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressinParen(qprojectParser.ExpressinParenContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ExpressionNome}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionNome(qprojectParser.ExpressionNomeContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ExpressionNome}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionNome(qprojectParser.ExpressionNomeContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ExpressionCharl}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionCharl(qprojectParser.ExpressionCharlContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ExpressionCharl}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionCharl(qprojectParser.ExpressionCharlContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ExpressionInt}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionInt(qprojectParser.ExpressionIntContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ExpressionInt}
+	 * labeled alternative in {@link qprojectParser#expressao}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionInt(qprojectParser.ExpressionIntContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link qprojectParser#operador_binario}.
 	 * @param ctx the parse tree

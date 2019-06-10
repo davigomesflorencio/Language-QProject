@@ -4,16 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>br.ufc.quixada.compiladores</groupId>
-    <artifactId>Qproject</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <groupId>br.ufc.quixada.qxd0025.semantica.antlr</groupId>
+    <artifactId>SEMANTICA-ANTLR</artifactId>
+    <version>0.1</version>
+
     <dependencies>
-        <dependency>
-            <groupId>info.picocli</groupId>
-            <artifactId>picocli</artifactId>
-            <version>3.9.5</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.antlr/antlr4 -->
         <dependency>
             <groupId>org.antlr</groupId>
             <artifactId>antlr4</artifactId>
@@ -26,12 +21,11 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>1.11</source>
+                    <target>1.11</target>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 
 </project>

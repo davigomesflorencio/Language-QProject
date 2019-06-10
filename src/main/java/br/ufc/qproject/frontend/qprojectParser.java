@@ -2316,41 +2316,148 @@ public class qprojectParser extends Parser {
 	}
 
 	public static class ExpressaoContext extends ParserRuleContext {
-		public TerminalNode LPAREN() { return getToken(qprojectParser.LPAREN, 0); }
+		public ExpressaoContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_expressao; }
+	 
+		public ExpressaoContext() { }
+		public void copyFrom(ExpressaoContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ExpressionFalseContext extends ExpressaoContext {
+		public TerminalNode FALSE() { return getToken(qprojectParser.FALSE, 0); }
+		public ExpressionFalseContext(ExpressaoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).enterExpressionFalse(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).exitExpressionFalse(this);
+		}
+	}
+	public static class ExpressionOperatorBinaryContext extends ExpressaoContext {
 		public List<ExpressaoContext> expressao() {
 			return getRuleContexts(ExpressaoContext.class);
 		}
 		public ExpressaoContext expressao(int i) {
 			return getRuleContext(ExpressaoContext.class,i);
 		}
-		public TerminalNode RPAREN() { return getToken(qprojectParser.RPAREN, 0); }
-		public Operador_unarioContext operador_unario() {
-			return getRuleContext(Operador_unarioContext.class,0);
-		}
-		public NomeContext nome() {
-			return getRuleContext(NomeContext.class,0);
-		}
-		public Parametros_reaisContext parametros_reais() {
-			return getRuleContext(Parametros_reaisContext.class,0);
-		}
-		public TerminalNode INTL() { return getToken(qprojectParser.INTL, 0); }
-		public TerminalNode CHARL() { return getToken(qprojectParser.CHARL, 0); }
-		public TerminalNode TRUE() { return getToken(qprojectParser.TRUE, 0); }
-		public TerminalNode FALSE() { return getToken(qprojectParser.FALSE, 0); }
 		public Operador_binarioContext operador_binario() {
 			return getRuleContext(Operador_binarioContext.class,0);
 		}
-		public ExpressaoContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_expressao; }
+		public ExpressionOperatorBinaryContext(ExpressaoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).enterExpressao(this);
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).enterExpressionOperatorBinary(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).exitExpressao(this);
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).exitExpressionOperatorBinary(this);
+		}
+	}
+	public static class ExpressionParameterContext extends ExpressaoContext {
+		public NomeContext nome() {
+			return getRuleContext(NomeContext.class,0);
+		}
+		public TerminalNode LPAREN() { return getToken(qprojectParser.LPAREN, 0); }
+		public Parametros_reaisContext parametros_reais() {
+			return getRuleContext(Parametros_reaisContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(qprojectParser.RPAREN, 0); }
+		public ExpressionParameterContext(ExpressaoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).enterExpressionParameter(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).exitExpressionParameter(this);
+		}
+	}
+	public static class ExpressionTrueContext extends ExpressaoContext {
+		public TerminalNode TRUE() { return getToken(qprojectParser.TRUE, 0); }
+		public ExpressionTrueContext(ExpressaoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).enterExpressionTrue(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).exitExpressionTrue(this);
+		}
+	}
+	public static class ExpressionOperatorUnaryContext extends ExpressaoContext {
+		public Operador_unarioContext operador_unario() {
+			return getRuleContext(Operador_unarioContext.class,0);
+		}
+		public ExpressaoContext expressao() {
+			return getRuleContext(ExpressaoContext.class,0);
+		}
+		public ExpressionOperatorUnaryContext(ExpressaoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).enterExpressionOperatorUnary(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).exitExpressionOperatorUnary(this);
+		}
+	}
+	public static class ExpressinParenContext extends ExpressaoContext {
+		public TerminalNode LPAREN() { return getToken(qprojectParser.LPAREN, 0); }
+		public ExpressaoContext expressao() {
+			return getRuleContext(ExpressaoContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(qprojectParser.RPAREN, 0); }
+		public ExpressinParenContext(ExpressaoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).enterExpressinParen(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).exitExpressinParen(this);
+		}
+	}
+	public static class ExpressionNomeContext extends ExpressaoContext {
+		public NomeContext nome() {
+			return getRuleContext(NomeContext.class,0);
+		}
+		public ExpressionNomeContext(ExpressaoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).enterExpressionNome(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).exitExpressionNome(this);
+		}
+	}
+	public static class ExpressionCharlContext extends ExpressaoContext {
+		public TerminalNode CHARL() { return getToken(qprojectParser.CHARL, 0); }
+		public ExpressionCharlContext(ExpressaoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).enterExpressionCharl(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).exitExpressionCharl(this);
+		}
+	}
+	public static class ExpressionIntContext extends ExpressaoContext {
+		public TerminalNode INTL() { return getToken(qprojectParser.INTL, 0); }
+		public ExpressionIntContext(ExpressaoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).enterExpressionInt(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof qprojectListener ) ((qprojectListener)listener).exitExpressionInt(this);
 		}
 	}
 
@@ -2374,6 +2481,10 @@ public class qprojectParser extends Parser {
 			switch ( getInterpreter().adaptivePredict(_input,21,_ctx) ) {
 			case 1:
 				{
+				_localctx = new ExpressinParenContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+
 				setState(330);
 				match(LPAREN);
 				setState(331);
@@ -2384,6 +2495,9 @@ public class qprojectParser extends Parser {
 				break;
 			case 2:
 				{
+				_localctx = new ExpressionOperatorUnaryContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(334);
 				operador_unario();
 				setState(335);
@@ -2392,6 +2506,9 @@ public class qprojectParser extends Parser {
 				break;
 			case 3:
 				{
+				_localctx = new ExpressionParameterContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(337);
 				nome();
 				setState(338);
@@ -2404,30 +2521,45 @@ public class qprojectParser extends Parser {
 				break;
 			case 4:
 				{
+				_localctx = new ExpressionNomeContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(342);
 				nome();
 				}
 				break;
 			case 5:
 				{
+				_localctx = new ExpressionIntContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(343);
 				match(INTL);
 				}
 				break;
 			case 6:
 				{
+				_localctx = new ExpressionCharlContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(344);
 				match(CHARL);
 				}
 				break;
 			case 7:
 				{
+				_localctx = new ExpressionTrueContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(345);
 				match(TRUE);
 				}
 				break;
 			case 8:
 				{
+				_localctx = new ExpressionFalseContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(346);
 				match(FALSE);
 				}
@@ -2443,7 +2575,7 @@ public class qprojectParser extends Parser {
 					_prevctx = _localctx;
 					{
 					{
-					_localctx = new ExpressaoContext(_parentctx, _parentState);
+					_localctx = new ExpressionOperatorBinaryContext(new ExpressaoContext(_parentctx, _parentState));
 					pushNewRecursionContext(_localctx, _startState, RULE_expressao);
 					setState(349);
 					if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
