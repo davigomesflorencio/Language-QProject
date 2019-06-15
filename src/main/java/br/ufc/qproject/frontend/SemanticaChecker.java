@@ -22,6 +22,40 @@ public class SemanticaChecker extends qprojectBaseListener {
             symbols.enterBlock();
         }
     }
+    
+       @Override
+    public void exitLista_de_definicoes(qprojectParser.Lista_de_definicoesContext ctx){
+        if(ctx.lista_de_definicoes().isEmpty()){
+            symbols.leaveBlock();
+        }
+    }
+
+
+    @Override
+    public void enterVariavel(qprojectParser.VariavelContext ctx) {
+        Symbol s = new Symbol(ctx.tipo().tipo_nome().ID().toString());
+        if(symbols.isDeclared(s)){
+            System.out.println("ERRO SEMANTICO -> Ja existe outra variavel com esse nome");
+        }
+    }
+
+    @Override
+    public void enterVariavel_atribuicao(qprojectParser.Variavel_atribuicaoContext ctx) {
+        Symbol s = new Symbol(ctx.ID().toString());
+
+        if (SymbolType.fromString(ctx.tipo().getText()) == SymbolType.VOID) {
+            System.out.println("Erro Semantico -> Nao se pode declarar variaveis do tipo void");
+        }
+        if (!ctx.tipo().decorador().isEmpty()) {
+            if (!symbols.isDeclared(s)) {
+                System.out.println("Erro Semantico -> Referencia a memoria nao declarada anteriormente")
+            }
+        } else {
+            if (symbols.isDeclared(s)) {
+                System.out.println("Erro Semantico-> Ja existe outra variavel com esse nome");
+            }
+        }
+    }
 
     @Override
     public void enterTipo(qprojectParser.TipoContext ctx) {
