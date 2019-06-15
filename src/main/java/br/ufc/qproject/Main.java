@@ -18,6 +18,7 @@ public class Main {
             qprojectParser parser = new qprojectParser(new CommonTokenStream(lexer));
 
             qprojectParser.ProgramaContext root = parser.programa();
+
             SemanticaChecker checker = new SemanticaChecker();
 
             ParseTreeWalker.DEFAULT.walk(checker, root);

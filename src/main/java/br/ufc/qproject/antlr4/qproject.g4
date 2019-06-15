@@ -77,8 +77,7 @@ comando
     | entrada
     | saida
     | expressao_comando
-    | BREAK SEMI
-    ;
+    | BREAK SEMI;
 selecao : IF LPAREN expressao RPAREN lista_comandos selecao_senao;
 selecao_senao
     : ELSE lista_comandos
@@ -221,7 +220,8 @@ CHAR :'char';
 BOOL :'bool';
 WHITE : [ \t]+ -> skip ;
 DIR : '#'.*? -> skip;
-COM : ('//' ~ [\r\n]*| '/*' .*? '*/')->skip;
+COM : ('//' ~ [ \r\n\t]+ | '/*' .*? '*/')->skip;
+WS : [ \r\n\t]+ -> skip ;
 CHARL: '\''[0-9a-zA-Z]'\'';
 INTL:(('+'|'-')?[1-9]+[0-9]*|[0]);
 STRL:'"'[0-9a-zA-Z]*'"';

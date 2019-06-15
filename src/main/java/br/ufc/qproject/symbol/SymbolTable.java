@@ -41,6 +41,9 @@ public class SymbolTable {
         return type;
     }
 
+    public SymbolTypeDefinition getTypeDefinition(Symbol s){
+        return activeScope.getBinding(s).get();
+    }
     public void enterBlock() {
         activeScope = activeScope.createNestedScope();
     }
