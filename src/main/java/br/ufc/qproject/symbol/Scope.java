@@ -3,7 +3,7 @@ package br.ufc.qproject.symbol;
 import java.util.*;
 
 public class Scope implements Iterable<Scope> {
-    private Map<Symbol, SymbolType> declaredSymbols = new HashMap<>();
+    private Map<Symbol, SymbolTypeDefinition> declaredSymbols = new HashMap<>();
     private List<Scope> nestedScopes = new ArrayList<>();
 
     private Scope parent;
@@ -12,7 +12,7 @@ public class Scope implements Iterable<Scope> {
         this.parent = parent;
     }
 
-    public boolean bind(Symbol s, SymbolType t) {
+    public boolean bind(Symbol s, SymbolTypeDefinition t) {
         return declaredSymbols.putIfAbsent(s, t) == null;
     }
 
@@ -20,7 +20,7 @@ public class Scope implements Iterable<Scope> {
         return declaredSymbols.containsKey(s);
     }
 
-    public Optional<SymbolType> getBinding(Symbol s) {
+    public Optional<SymbolTypeDefinition> getBinding(Symbol s) {
         return Optional.ofNullable(declaredSymbols.get(s));
     }
 

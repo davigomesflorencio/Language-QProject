@@ -20,7 +20,7 @@ public class SymbolTable {
         return false;
     }
 
-    public boolean tryDeclare(Symbol s, SymbolType t) {
+    public boolean tryDeclare(Symbol s, SymbolTypeDefinition t) {
         return activeScope.bind(s, t);
     }
 
@@ -32,7 +32,7 @@ public class SymbolTable {
                 current != null;
                 current = current.getParentScope()
         ) {
-            type = current.getBinding(s);
+            type = Optional.ofNullable(current.getBinding(s).get().getSb());
 
             if(type.isPresent())
                 break;
