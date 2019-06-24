@@ -6,6 +6,7 @@ public enum SymbolType {
     BOOLEAN,
     CHARL,
     STRUCT,
+    FUNCTION,
     INVALID;
 
     public static SymbolType fromString(String str) {
@@ -20,6 +21,8 @@ public enum SymbolType {
                 return BOOLEAN;
             case "struct":
                 return STRUCT;
+            case "functon":
+                return FUNCTION;
             default:
                 return INVALID;
         }
@@ -40,10 +43,16 @@ public enum SymbolType {
     public boolean TypeIs_CHARL() {
         return this == CHARL;
     }
+
     public boolean TypeIs_VOID() {
         return this == VOID;
     }
-    public  boolean TypesIs_STRUCT(){
-        return this==STRUCT;
+
+    public boolean TypesIs_STRUCT() {
+        return this == STRUCT;
+    }
+
+    public boolean TypesIs_FUNCTION() {
+        return this == FUNCTION;
     }
 }

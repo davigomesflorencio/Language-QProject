@@ -30,10 +30,12 @@ membro
     | STATIC variavel
     | STATIC funcao
     ;
-variavel : tipo ID SEMI;
-variavel_atribuicao : tipo ID ATRIB expressao SEMI;
 construtor : ID LPAREN parametros_formais RPAREN bloco;
+variavel : tipo ID SEMI;
 metodo : funcao_cabecalho qualificador bloco;
+
+variavel_atribuicao : tipo ID ATRIB expressao SEMI;
+
 funcao : funcao_cabecalho bloco;
 funcao_cabecalho : tipo ID LPAREN parametros_formais RPAREN;
 parametros_formais
@@ -64,6 +66,7 @@ decorador
     |
     ;
 bloco : LBRACE lista_declaracoes_locais lista_comandos RBRACE;
+
 lista_comandos
     : lista_comandos comando
     | comando

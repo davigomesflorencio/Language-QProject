@@ -32,7 +32,7 @@ public class SymbolTable {
                 current != null;
                 current = current.getParentScope()
         ) {
-            type = Optional.ofNullable(current.getBinding(s).get().getSb());
+            type = Optional.ofNullable(current.getBinding(s).get().getSymbolType());
 
             if(type.isPresent())
                 break;

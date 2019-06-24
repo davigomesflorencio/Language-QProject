@@ -2,41 +2,41 @@ package br.ufc.qproject.symbol;
 
 public class SymbolTypeDefinition {
 
-    private boolean qual;
-    private SymbolType sb;
-    private boolean decorado;
+    private boolean constante;
+    private SymbolType symbolType;
+    private boolean referencia;
 
     public SymbolTypeDefinition() {
 
     }
 
-    public SymbolTypeDefinition(boolean qual, SymbolType sb, boolean decorado) {
-        this.qual = qual;
-        this.sb = sb;
-        this.decorado = decorado;
+    public SymbolTypeDefinition(boolean constante, SymbolType symbolType, boolean referencia) {
+        this.constante = constante;
+        this.symbolType = symbolType;
+        this.referencia = referencia;
     }
 
-    public boolean isQual() {
-        return qual;
+    public boolean isConstante() {
+        return constante;
     }
 
-    public void setQual(boolean qual) {
-        this.qual = qual;
+    public void setConstante(boolean constante) {
+        this.constante = constante;
     }
 
-    public SymbolType getSb() {
-        return sb;
+    public SymbolType getSymbolType() {
+        return symbolType;
     }
 
-    public void setSb(SymbolType sb) {
-        this.sb = sb;
+    public void setSymbolType(SymbolType symbolType) {
+        this.symbolType = symbolType;
     }
 
-    public boolean isDecorado() {
-        return decorado;
+    public boolean isReferencia() {
+        return referencia;
     }
 
-    public void setDecorado(boolean decorado) {
-        this.decorado = decorado;
+    public void setReferencia(boolean referencia) {
+        this.referencia = referencia;
     }
 }

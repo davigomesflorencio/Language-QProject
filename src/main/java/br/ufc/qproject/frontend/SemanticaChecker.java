@@ -23,7 +23,7 @@ public class SemanticaChecker extends qprojectBaseListener {
     public void exitPrograma(qprojectParser.ProgramaContext ctx) {
         Symbol s = new Symbol("main");
         if (symbols.isDeclared(s)) {
-            if (symbols.getTypeDefinition(s).getSb().TypeEquals(SymbolType.INTL)) {
+            if (symbols.getTypeDefinition(s).getSymbolType().TypeEquals(SymbolType.INTL)) {
 
             }
         }
@@ -53,16 +53,16 @@ public class SemanticaChecker extends qprojectBaseListener {
         } else {
             SymbolTypeDefinition std = new SymbolTypeDefinition();
             if (ctx.tipo().decorador().getText().equals("&")) {
-                std.setDecorado(true);
+                std.setReferencia(true);
             } else {
-                std.setDecorado(false);
+                std.setReferencia(false);
             }
             if (ctx.tipo().qualificador().getText().equals("const")) {
-                std.setQual(true);
+                std.setConstante(true);
             } else {
-                std.setQual(false);
+                std.setConstante(false);
             }
-            std.setSb(SymbolType.fromString(ctx.tipo().getText()));
+            std.setSymbolType(SymbolType.fromString(ctx.tipo().getText()));
             symbols.tryDeclare(s, std);
         }
 
@@ -77,7 +77,7 @@ public class SemanticaChecker extends qprojectBaseListener {
             System.out.println("Erro Semantico -> Nao se pode declarar variaveis do tipo void");
         }
         if (!(ctx.tipo().decorador().isEmpty()
-                || expressionType.get(ctx.expressao()).getSb().TypeEquals(symbols.getTypeDefinition(s).getSb()))) {
+                || expressionType.get(ctx.expressao()).getSymbolType().TypeEquals(symbols.getTypeDefinition(s).getSymbolType()))) {
             System.out.println("Erro Semantico -> Referencia a memoria nao declarada anteriormente");
         }
         if (symbols.isDeclared(s) == true) {
@@ -93,12 +93,12 @@ public class SemanticaChecker extends qprojectBaseListener {
         if (!symbols.isDeclared(s)) {
             System.out.println("Erro Semantico-> Variavel ainda não declarada");
         } else {
-            if ((symbols.getTypeDefinition(s).isQual() == false)) {
-                if (!expressionType.get(ctx.expressao()).getSb().TypeEquals(symbols.getType(s).get()))
+            if ((symbols.getTypeDefinition(s).isConstante() == false)) {
+                if (!expressionType.get(ctx.expressao()).getSymbolType().TypeEquals(symbols.getType(s).get()))
                     System.out.println("Erro Semantico-> Atribuição Invalida , Tipos incompativeis");
 
             } else {
-                if (!expressionType.get(ctx.expressao()).isQual())
+                if (!expressionType.get(ctx.expressao()).isConstante())
                     System.out.println("Erro Semantico-> Atribuição Invalida , Variavel de origem não Qualificada");
             }
         }
@@ -109,29 +109,35 @@ public class SemanticaChecker extends qprojectBaseListener {
     public void exitExpressionOperatorBinary(qprojectParser.ExpressionOperatorBinaryContext ctx) {
         SymbolTypeDefinition std = new SymbolTypeDefinition();
 
-        if (expressionType.get(ctx.expressao(0)).getSb().TypeIsBOOLEAN() &&
-                expressionType.get(ctx.expressao(1)).getSb().TypeIsBOOLEAN() &&
+        if (expressionType.get(ctx.expressao(0)).getSymbolType().TypeIsBOOLEAN() &&
+                expressionType.get(ctx.expressao(1)).getSymbolType().TypeIsBOOLEAN() &&
                 (Arrays.asList("||","&&","!").contains(ctx.operador_binario().getText()))) {
 
-            std.setSb(SymbolType.BOOLEAN);
-            std.setQual(false);
-            std.setDecorado(false);
+            std.setSymbolType(SymbolType.BOOLEAN);
+            std.setConstante(false);
+            std.setReferencia(false);
             expressionType.put(ctx, std);
-        } else if (expressionType.get(ctx.expressao(0)).getSb().TypeIs_INT() &&
-                expressionType.get(ctx.expressao(1)).getSb().TypeIs_INT() &&
+        } else if (expressionType.get(ctx.expressao(0)).getSymbolType().TypeIs_INT() &&
+                expressionType.get(ctx.expressao(1)).getSymbolType().TypeIs_INT() &&
                 (Arrays.asList("+","*","-","/","==","<=",">=","<",">").contains(ctx.operador_binario().getText()))) {
 
-            std.setSb(SymbolType.INTL);
-            std.setQual(false);
-            std.setDecorado(false);
+            std.setSymbolType(SymbolType.INTL);
+            std.setConstante(false);
+            std.setReferencia(false);
             expressionType.put(ctx, std);
-        }else {
-            std.setSb(SymbolType.INVALID);
-            std.setQual(false);
-            std.setDecorado(false);
+        }else if(ctx.equals(qprojectLexer.INT)){
+            std.setSymbolType(SymbolType.INTL);
+            std.setConstante(false);
+            std.setReferencia(false);
+            expressionType.put(ctx, std);
+        }else{
+            std.setSymbolType(SymbolType.INVALID);
+            std.setConstante(false);
+            std.setReferencia(false);
             expressionType.put(ctx, std);
         }
     }
+    //
 
     //TODO RETORNO
 
