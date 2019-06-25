@@ -112,30 +112,6 @@ public class qprojectBaseListener implements qprojectListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariavel(qprojectParser.VariavelContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitVariavel(qprojectParser.VariavelContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterVariavel_atribuicao(qprojectParser.Variavel_atribuicaoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitVariavel_atribuicao(qprojectParser.Variavel_atribuicaoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterConstrutor(qprojectParser.ConstrutorContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -148,6 +124,18 @@ public class qprojectBaseListener implements qprojectListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterVariavel(qprojectParser.VariavelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariavel(qprojectParser.VariavelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterMetodo(qprojectParser.MetodoContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -155,6 +143,18 @@ public class qprojectBaseListener implements qprojectListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMetodo(qprojectParser.MetodoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVariavel_atribuicao(qprojectParser.Variavel_atribuicaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariavel_atribuicao(qprojectParser.Variavel_atribuicaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

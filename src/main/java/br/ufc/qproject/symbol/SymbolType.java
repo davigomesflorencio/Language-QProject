@@ -9,23 +9,25 @@ public enum SymbolType {
     FUNCTION,
     INVALID;
 
+    /*
+        TODO return enum if str contains is value( void,int,char, bool,struct,function)
+     */
     public static SymbolType fromString(String str) {
-        switch (str) {
-            case "void":
-                return VOID;
-            case "int":
-                return INTL;
-            case "char":
-                return CHARL;
-            case "bool":
-                return BOOLEAN;
-            case "struct":
-                return STRUCT;
-            case "functon":
-                return FUNCTION;
-            default:
-                return INVALID;
-        }
+        if (str.contains("void"))
+            return VOID;
+        if (str.contains("int"))
+            return INTL;
+        if (str.contains("char"))
+            return CHARL;
+        if (str.contains("bool"))
+            return BOOLEAN;
+        if (str.contains("struct"))
+            return STRUCT;
+        if (str.contains("function"))
+            return FUNCTION;
+
+        return INVALID;
+
     }
 
     public boolean TypeIs_INT() {

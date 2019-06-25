@@ -1,46 +1,33 @@
 package br.ufc.qproject.symbol;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class StructMember {
-    private Map<Symbol, SymbolTypeDefinition> var;
-    private Map<Symbol, FunctionTypeDefinition> function;
-    private Map<Symbol, SymbolTypeDefinition> varStatic;
-    private Map<Symbol, FunctionTypeDefinition> functionStatic;
+    private Map<Symbol, SymbolTypeDefinition> variables = new HashMap<>();
+    private List<FunctionTypeDefinition> functions = new ArrayList<>();
+    private Map<Symbol, SymbolTypeDefinition> variableStatic = new HashMap<>();
+    private List<FunctionTypeDefinition> functionStatic = new ArrayList<>();
 
     public StructMember() {
 
     }
 
-    public boolean bindVariavel(Symbol s, SymbolTypeDefinition t) {
-        return var.putIfAbsent(s, t) == null;
+    public Map<Symbol, SymbolTypeDefinition> getVariables() {
+        return variables;
     }
 
-    public boolean containsVariavel(Symbol s) {
-        return var.containsKey(s);
+    public List<FunctionTypeDefinition> getFunctions() {
+        return functions;
     }
 
-    public boolean bindFunction(Symbol s, FunctionTypeDefinition t) {
-        return function.putIfAbsent(s, t) == null;
+    public Map<Symbol, SymbolTypeDefinition> getVariableStatic() {
+        return variableStatic;
     }
 
-    public boolean containsFunction(Symbol s) {
-        return function.containsKey(s);
-    }
-
-    public boolean bindVariavelStatic(Symbol s, SymbolTypeDefinition t) {
-        return varStatic.putIfAbsent(s, t) == null;
-    }
-
-    public boolean containsVariavelStatic(Symbol s) {
-        return varStatic.containsKey(s);
-    }
-
-    public boolean bindFunctionStatic(Symbol s, FunctionTypeDefinition t) {
-        return functionStatic.putIfAbsent(s, t) == null;
-    }
-
-    public boolean containsFunctionStatic(Symbol s) {
-        return functionStatic.containsKey(s);
+    public List<FunctionTypeDefinition> getFunctionStatic() {
+        return functionStatic;
     }
 }

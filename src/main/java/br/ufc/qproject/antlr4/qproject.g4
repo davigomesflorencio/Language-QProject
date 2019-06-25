@@ -43,8 +43,7 @@ parametros_formais
     |
     ;
 lista_parametros_formais
-    : lista_parametros_formais COMMA tipo ID
-    | tipo ID
+    :  tipo ID (COMMA lista_parametros_formais )?
     ;
 tipo
     : VOID

@@ -88,26 +88,6 @@ public interface qprojectListener extends ParseTreeListener {
 	 */
 	void exitMembro(qprojectParser.MembroContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link qprojectParser#variavel}.
-	 * @param ctx the parse tree
-	 */
-	void enterVariavel(qprojectParser.VariavelContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link qprojectParser#variavel}.
-	 * @param ctx the parse tree
-	 */
-	void exitVariavel(qprojectParser.VariavelContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link qprojectParser#variavel_atribuicao}.
-	 * @param ctx the parse tree
-	 */
-	void enterVariavel_atribuicao(qprojectParser.Variavel_atribuicaoContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link qprojectParser#variavel_atribuicao}.
-	 * @param ctx the parse tree
-	 */
-	void exitVariavel_atribuicao(qprojectParser.Variavel_atribuicaoContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link qprojectParser#construtor}.
 	 * @param ctx the parse tree
 	 */
@@ -118,6 +98,16 @@ public interface qprojectListener extends ParseTreeListener {
 	 */
 	void exitConstrutor(qprojectParser.ConstrutorContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link qprojectParser#variavel}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariavel(qprojectParser.VariavelContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link qprojectParser#variavel}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariavel(qprojectParser.VariavelContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link qprojectParser#metodo}.
 	 * @param ctx the parse tree
 	 */
@@ -127,6 +117,16 @@ public interface qprojectListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMetodo(qprojectParser.MetodoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link qprojectParser#variavel_atribuicao}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariavel_atribuicao(qprojectParser.Variavel_atribuicaoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link qprojectParser#variavel_atribuicao}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariavel_atribuicao(qprojectParser.Variavel_atribuicaoContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link qprojectParser#funcao}.
 	 * @param ctx the parse tree

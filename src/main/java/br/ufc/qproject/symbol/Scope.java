@@ -4,6 +4,8 @@ import java.util.*;
 
 public class Scope implements Iterable<Scope> {
     private Map<Symbol, SymbolTypeDefinition> declaredSymbols = new HashMap<>();
+    private List<FunctionTypeDefinition> functions = new ArrayList<>();
+    private List<StructTypeDefinition> structs = new ArrayList<>();
     private List<Scope> nestedScopes = new ArrayList<>();
 
     private Scope parent;
@@ -27,8 +29,41 @@ public class Scope implements Iterable<Scope> {
     public Scope createNestedScope() {
         Scope nextScope = new Scope(this);
         nestedScopes.add(nextScope);
-
         return nextScope;
+    }
+
+    public boolean createStruct(StructTypeDefinition st) {
+        return structs.add(st);
+    }
+
+    public boolean containsStruct(String s) {
+        for (StructTypeDefinition std : getStructs()) {
+            if (s.equals(std.getNameStruct())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean createFunction(FunctionTypeDefinition ftd) {
+        return functions.add(ftd);
+    }
+
+    public boolean containsFunction(String name, List<VariableDefinition> parameters) {
+        for (FunctionTypeDefinition f : getFunctions()) {
+            if (parameters.equals(f.getList_of_parameters())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<FunctionTypeDefinition> getFunctions() {
+        return functions;
+    }
+
+    public List<StructTypeDefinition> getStructs() {
+        return structs;
     }
 
     @Override
